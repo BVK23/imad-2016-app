@@ -5,12 +5,99 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne={
+    title: "Article 1|BVK",
+    date: "7-11-16",
+    content: `<p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                `
+};
+var articleTwo={
+    title: "Article 2|BVK",
+    date: "6-11-16",
+    content: `<p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                `
+};
+var articleThree={
+    title: "Article 3|BVK",
+    date: "5-11-16",
+    content: `<p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                
+                <p>
+                    Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
+                </p>
+                `
+};
+function createTemplate (data){
+ var title = data.title;
+ var date = dat.date;
+ var content = dat.content;
+ var htmlTemplate = `<html>
+     <head>
+        <title>
+       ${title}
+       </title>    
+         <link href="/ui/style.css" rel="stylesheet" />
+        
+    </head>
+    <body>
+         <div class="container">
+        <div>
+            <a href="/">Home</a> </div>
+            <h3>
+                ${heading}
+            </h3>
+            <div>
+            ${date}
+            </div>
+            <div>
+               ${content}
+            </div>
+        </div>
+    </body>
+    
+    
+    
+    
+   </html>
+     `;
+     return htmlTemplate;
+    
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+
+
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', '/article-one.html'));
+ res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {
