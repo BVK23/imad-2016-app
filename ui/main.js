@@ -11,11 +11,10 @@ var cnt = 1;
         img.style.marginLeft = marginLeft +'px';
     }
 img.onclick = function(){
-    if(cnt == 1)
-    { var interval = setInterval(moveRight, 50);
+    //if(cnt == 1)
+    var interval = setInterval(moveRight, 50);
      cnt++ ; 
-    }
-    else
-   img.style.centre;
+    
+    //else  img.style.centre;
  
 };
