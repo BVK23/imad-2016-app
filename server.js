@@ -55,8 +55,8 @@ var articleThree={
 };
 function createTemplate (data){
  var title = data.title;
- var date = dat.date;
- var content = dat.content;
+ var date = data.date;
+ var content = data.content;
  var htmlTemplate = `<html>
      <head>
         <title>
