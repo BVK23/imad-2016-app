@@ -56,8 +56,8 @@ var articles = {
                     Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
                 </p>
                 `
-};
 }
+};
 function createTemplate (data){
  var title = data.title;
  var date = data.date;
