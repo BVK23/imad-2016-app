@@ -13,9 +13,9 @@ var cnt = 1;
 img.onclick = function(){
     if(cnt == 1)
     { var interval = setInterval(moveRight, 50);
-     cnt=2; 
+     cnt++ ; 
     }
     else
-     {text-align: center;}
+   img.style.centre;
  
 };
