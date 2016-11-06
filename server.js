@@ -23,8 +23,9 @@ var articleOne={
                 `
 };
 var articleTwo={
-    title: "Article 2|BVK",
-    date: "6-11-16",
+    title: 'Article 2|BVK',
+    date: '6-11-16',
+    heading: 'Article Two',
     content: `<p>
                     Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
                 </p>
@@ -39,8 +40,9 @@ var articleTwo={
                 `
 };
 var articleThree={
-    title: "Article 3|BVK",
-    date: "5-11-16",
+    title: 'Article 3|BVK',
+    date: '5-11-16',
+    heading : 'Article Three',
     content: `<p>
                     Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
                 </p>
@@ -103,11 +105,11 @@ app.get('/article-one', function (req, res) {
 });
 
 app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', '/article-two.html'));
+ res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', '/article-three.html'));
+ res.send(createTemplate(articleThree));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
