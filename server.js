@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne={
+var articles = {
+'article-one':{
     title: 'Article 1|BVK',
     date: '7-11-16',
     heading: 'Article One',
@@ -21,8 +22,8 @@ var articleOne={
                     Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
                 </p>
                 `
-};
-var articleTwo={
+},
+'article-two':{
     title: 'Article 2|BVK',
     date: '6-11-16',
     heading: 'Article Two',
@@ -38,8 +39,8 @@ var articleTwo={
                     Artile will be written here//     Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//    Artile will be written here//
                 </p>
                 `
-};
-var articleThree={
+},
+'article-three':{
     title: 'Article 3|BVK',
     date: '5-11-16',
     heading : 'Article Three',
@@ -56,6 +57,7 @@ var articleThree={
                 </p>
                 `
 };
+}
 function createTemplate (data){
  var title = data.title;
  var date = data.date;
@@ -100,17 +102,12 @@ app.get('/', function (req, res) {
 
 
 
-app.get('/article-one', function (req, res) {
- res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+ var articleName = req.params.articleName;
+ res.send(createTemplate(articles[artilceName]));
 });
 
-app.get('/article-two', function (req, res) {
- res.send(createTemplate(articleTwo));
-});
 
-app.get('/article-three', function (req, res) {
- res.send(createTemplate(articleThree));
-});
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
